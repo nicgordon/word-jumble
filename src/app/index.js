@@ -65,15 +65,6 @@ function isInAcceptableSolutions(word) {
 }
 
 function isValidSolution(word) {
-  /*var inWordList = isInWordList(word);
-  var isASubAnagram = isSubAnagram(word, theJumble);
-  var isAcceptable = isInAcceptableSolutions(word);
-  
-  console.log('is in word list', inWordList);
-  console.log('is sub anagram', isASubAnagram);
-  console.log('is acceptable', isAcceptable);
-  
-  return !inWordList && isASubAnagram && isAcceptable; */
   return !isInWordList(word) && isSubAnagram(word, theJumble) && isInAcceptableSolutions(word);
 }
 
@@ -102,6 +93,7 @@ function submitSolution() {
       timer = window.setInterval(function() {
         timeRemaining--;
         if (timeRemaining === 0) {
+          window.clearTimeout(timer);
           solution.disabled = true;
           submitButton.disabled = true;
         }
