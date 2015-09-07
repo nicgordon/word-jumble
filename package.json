@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/nicgordon/word-jumble#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "react": "^0.13.3",
+    "react-redux": "^2.1.1",
+    "redux": "^2.0.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^2.1.0"
   }
 }
