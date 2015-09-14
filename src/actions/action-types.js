@@ -1,0 +1,2 @@
+export const CLEAR_SELECTED = 'CLEAR_SELECTED';
+export const SUBMIT_ATTEMPT = 'SUBMIT_ATTEMPT';
