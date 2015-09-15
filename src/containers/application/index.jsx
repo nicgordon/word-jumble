@@ -1,21 +1,19 @@
 import React, { PropTypes } from 'react';
-import Tile from '../../components/tile';
+import { connect } from 'react-redux';
+import Jumble from '../../components/jumble';
 
 export default class Application extends React.Component {
   static propTypes = {
-
+    jumble: PropTypes.array,
+    solution: PropTypes.array,
   }
 
   render() {
-    const tiles = 'chicken'.split('').map((letter, index) => {
-      return <Tile value={letter} key={index} />;
-    });
-
     return (
       <div>
-        <div id="jumble">{tiles}</div>
         <p>Time remaining: <span id="timer"></span></p>
         <p>Your score: <span id="score"></span></p>
+        <Jumble tiles={this.props.jumble} />
         <input name="solution" type="text" />
         <button name="submit">Submit</button>
         <button name="clear">Clear</button>
@@ -23,4 +21,11 @@ export default class Application extends React.Component {
       </div>
     );
   }
-}
+} 
+
+const mapStateToProps = state => ({
+  jumble: state.tiles.jumble,
+  solution: state.tiles.solution,
+});
+
+export default connect(mapStateToProps)(Application);
