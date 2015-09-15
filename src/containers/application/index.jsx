@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Tile from '../../components/tile';
 
 export default class Application extends React.Component {
   static propTypes = {
@@ -6,9 +7,13 @@ export default class Application extends React.Component {
   }
 
   render() {
+    const tiles = 'chicken'.split('').map((letter, index) => {
+      return <Tile value={letter} key={index} />;
+    });
+
     return (
       <div>
-        <p id="jumble"></p>
+        <div id="jumble">{tiles}</div>
         <p>Time remaining: <span id="timer"></span></p>
         <p>Your score: <span id="score"></span></p>
         <input name="solution" type="text" />
