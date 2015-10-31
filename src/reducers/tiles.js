@@ -29,7 +29,7 @@ function returnTileToJumble(tile, jumble) {
     const jumbleTile = jumble[i];
 
     if (jumbleTile.value === '') {
-      jumble.splice(i, 1, touchedTile);
+      jumble.splice(i, 1, tile);
       break;
     }
   }
