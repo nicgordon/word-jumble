@@ -9,6 +9,7 @@ import tilesActions from '../../actions/tiles';
 
 // Components
 import TilePanel from '../../components/tile-panel';
+import WordList from '../../components/word-list';
 
 export default class Application extends React.Component {
   static propTypes = {
@@ -18,6 +19,7 @@ export default class Application extends React.Component {
     jumble: PropTypes.array.isRequired,
     score: PropTypes.number.isRequired,
     timeRemaining: PropTypes.number.isRequired,
+    words: PropTypes.array.isRequired,
   }
 
   constructor(props) {
@@ -89,7 +91,7 @@ export default class Application extends React.Component {
   }
 
   render() {
-    const { actions, attempt, jumble, score, timeRemaining } = this.props;
+    const { actions, attempt, jumble, score, timeRemaining, words } = this.props;
 
     return (
       <div>
@@ -102,7 +104,7 @@ export default class Application extends React.Component {
         <button type="button" name="submit" onClick={this.onSubmitHandler}>Submit</button>
         <button type="button" name="clear" onClick={this.onClearHandler}>Clear</button>
 
-        <ul id="word-list"></ul>
+        <WordList words={words} />
       </div>
     );
   }
@@ -114,6 +116,7 @@ function mapStateToProps(state) {
     jumble: state.tiles.jumble,
     score: state.score.score,
     timeRemaining: state.time.timeRemaining,
+    words: state.score.wordList,
   };
 }
 
