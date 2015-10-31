@@ -16,6 +16,8 @@ export default class Application extends React.Component {
     actions: PropTypes.object.isRequired,
     attempt: PropTypes.array.isRequired,
     jumble: PropTypes.array.isRequired,
+    score: PropTypes.number.isRequired,
+    timeRemaining: PropTypes.number.isRequired,
   }
 
   constructor(props) {
@@ -82,12 +84,12 @@ export default class Application extends React.Component {
   }
 
   render() {
-    const { actions, attempt, jumble } = this.props;
+    const { actions, attempt, jumble, score, timeRemaining } = this.props;
 
     return (
       <div>
-        <p>Time remaining: <span id="timer"></span></p>
-        <p>Your score: <span id="score"></span></p>
+        <p>Time remaining: <span id="timer">{timeRemaining}</span></p>
+        <p>Your score: <span id="score">{score}</span></p>
 
         <TilePanel actions={actions} tiles={attempt} type={TILE_PANEL_TYPE.ATTEMPT} />
         <TilePanel actions={actions} tiles={jumble} type={TILE_PANEL_TYPE.JUMBLE} />
@@ -106,6 +108,8 @@ function mapStateToProps(state) {
   return {
     attempt: state.tiles.attempt,
     jumble: state.tiles.jumble,
+    score: state.score.score,
+    timeRemaining: state.time.timeRemaining,
   };
 }
 
