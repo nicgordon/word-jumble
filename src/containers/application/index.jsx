@@ -57,17 +57,20 @@ export default class Application extends React.Component {
   }
 } 
 
-const mapStateToProps = state => ({
-  attempt: state.tiles.attempt,
-  jumble: state.tiles.jumble,
-  testing: state.tiles.testing,
-});
+function mapStateToProps(state) {
+  return {
+    attempt: state.tiles.attempt,
+    jumble: state.tiles.jumble,
+  };
+}
 
-const mapDispatchToProps = dispatch => ({
-  actions: {
-    tiles: bindActionCreators(tilesActions, dispatch),
-  }
-});
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      tiles: bindActionCreators(tilesActions, dispatch),
+    },
+  };
+}
 
 export default connect(
   mapStateToProps,
