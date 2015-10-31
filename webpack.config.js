@@ -1,11 +1,17 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: "./src",
+  devtool: 'eval',
+  entry: [
+    'webpack-hot-middleware/client',
+    './src',
+  ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: __dirname,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     loaders: [
@@ -15,6 +21,9 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
   resolve: {
     root: __dirname,
