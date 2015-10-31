@@ -5,8 +5,8 @@ import time from './time';
 
 const rootReducer = combineReducers({
   score,
-  time,
   tiles,
+  time,
 });
 
 export default rootReducer;
