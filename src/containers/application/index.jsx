@@ -21,6 +21,7 @@ export default class Application extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onClearHandler = this.onClearHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
@@ -48,7 +49,7 @@ export default class Application extends React.Component {
         
         <form onSubmit={this.onSubmitHandler}>
           <button type="submit" name="submit">Submit</button>
-          <button type="button" name="clear">Clear</button>
+          <button type="button" name="clear" onClick={this.onClearHandler}>Clear</button>
         </form>
         <ul id="word-list"></ul>
       </div>
