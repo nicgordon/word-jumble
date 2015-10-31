@@ -102,12 +102,19 @@ export default function score(state = initialState, action = {}) {
         return state;
       }
 
-      const newState = { ...state };
-      if (validAttempts.indexOf(action.submission) > -1) {
-        newState.score += getScore(action.submission);
+      let score = state.score;
+      const wordList = state.wordList.slice();
+      if (validAttempts.indexOf(action.submission) > -1 && wordList.indexOf(action.submission) === -1) {
+        // New word found. Update score and word list
+        score += getScore(action.submission);
+        wordList.unshift(action.submission);
       }
 
-      return newState;
+      return {
+        ...state,
+        score,
+        wordList,
+      };
     },
   };
 
