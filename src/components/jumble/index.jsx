@@ -16,8 +16,8 @@ export default class Jumble extends React.Component {
   }
 
   render() {
-    const tiles = this.props.tiles.map(tile => {
-      return tile.value ? <Tile {...tile} /> : <div className={style.tilePlaceholder}></div>;
+    const tiles = this.props.tiles.map((tile, index) => {
+      return tile.value ? <Tile {...tile} key={index} /> : <div key={index} className={style.tilePlaceholder}></div>;
     });
 
     return (
