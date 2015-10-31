@@ -20,7 +20,8 @@ function returnAllTilesToJumble(attempt, jumble) {
   attempt.forEach(tile => {
     returnTileToJumble(tile, jumble);
   });
-  attempt = [];
+  // Empty array whilst maintaining reference to the same array
+  attempt.splice(0, attempt.length);
 }
 
 function returnTileToJumble(tile, jumble) {
@@ -39,27 +40,44 @@ export default function tiles(state = initialState, action = {}) {
   const reducers = {
     [TOUCH_TILE]: () => {
       const newState = { ...state };
+      const attempt = newState.attempt.slice();
+      const jumble = newState.jumble.slice();
+
       if (action.movement === TILE_MOVEMENT.ADD_TO_ATTEMPT) {
         // Grab the touched tile from the jumble and replace it with a placeholder
-        const touchedTile = newState.jumble.splice(action.index, 1, { ...tilePlaceholder })[0];
+        const touchedTile = jumble.splice(action.index, 1, { ...tilePlaceholder })[0];
         // Append the touched tile to the attempt
-        newState.attempt.push(touchedTile);
+        attempt.push(touchedTile);
       } else {
         // Grab the touched tile from the attempt
-        const touchedTile = newState.attempt.splice(action.index, 1)[0];
-        returnTileToJumble(touchedTile, newState.jumble);
+        const touchedTile = attempt.splice(action.index, 1)[0];
+        returnTileToJumble(touchedTile, jumble);
       }
 
+      newState.attempt = attempt;
+      newState.jumble = jumble;
       return newState;
     },
     [CLEAR_ATTEMPT]: () => {
       const newState = { ...state };
-      returnAllTilesToJumble(newState.attempt, newState.jumble);
+      const attempt = newState.attempt.slice();
+      const jumble = newState.jumble.slice();
+
+      returnAllTilesToJumble(attempt, jumble);
+
+      newState.attempt = attempt;
+      newState.jumble = jumble;
       return newState;
     },
     [SUBMIT_ATTEMPT]: () => {
       const newState = { ...state };
-      returnAllTilesToJumble(newState.attempt, newState.jumble);
+      const attempt = newState.attempt.slice();
+      const jumble = newState.jumble.slice();
+
+      returnAllTilesToJumble(attempt, jumble);
+
+      newState.attempt = attempt;
+      newState.jumble = jumble;
       return newState;
     },
   };
