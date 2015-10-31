@@ -40,7 +40,6 @@ export default class Application extends React.Component {
 
     return (
       <div>
-        {this.props.testing}
         <p>Time remaining: <span id="timer"></span></p>
         <p>Your score: <span id="score"></span></p>
 

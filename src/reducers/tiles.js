@@ -12,9 +12,6 @@ const initialState = {
     { value: 'n' },
   ],
   attempt: [],
-
-  // TODO: Remove this
-  testing: null,
 };
 
 const tilePlaceholder = { value: '' };
@@ -41,9 +38,6 @@ function returnTileToJumble(tile, jumble) {
 export default function time(state = initialState, action = {}) {
   const reducers = {
     [TOUCH_TILE]: () => {
-
-      console.log('action', action);
-
       const newState = { ...state };
       if (action.movement === TILE_MOVEMENT.ADD_TO_ATTEMPT) {
         // Grab the touched tile from the jumble and replace it with a placeholder
@@ -56,17 +50,11 @@ export default function time(state = initialState, action = {}) {
         returnTileToJumble(touchedTile, newState.jumble);
       }
 
-      console.log('newState', newState);
-
       return newState;
     },
     [CLEAR_ATTEMPT]: () => {
       const newState = { ...state };
       returnAllTilesToJumble(newState.attempt, newState.jumble);
-
-      // TODO: Remove this, just testing
-      newState.testing = 'balls';
-
       return newState;
     },
     [SUBMIT_ATTEMPT]: () => {
