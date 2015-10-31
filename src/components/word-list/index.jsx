@@ -6,7 +6,7 @@ export default class WordList extends React.Component {
   }
 
   render() {
-    const words = this.props.words.map(word => <li>{word}</li>);
+    const words = this.props.words.map((word, index) => <li key={index}>{word}</li>);
 
     return (
       <ul>
