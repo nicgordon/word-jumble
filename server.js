@@ -6,7 +6,7 @@ var config = require('./webpack.config');
 var app = express();
 var compiler = webpack(config);
 
-// React hot reloading.
+// React hot reloading
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath,
@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.use('/dist', express.static('dist'));
+// app.use('/dist', express.static('dist'));
 
 var server = app.listen(3333, function () {
   var host = server.address().address;
