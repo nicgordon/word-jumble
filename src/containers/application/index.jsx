@@ -41,6 +41,11 @@ export default class Application extends React.Component {
   }
 
   onKeydownHandler(event) {
+    // If any modifier keys are being pressed then return
+    if (event.altKey || event.ctrlKey || event.metaKey) {
+      return;
+    }
+
     event.preventDefault();
     const { attempt, jumble } = this.props;
 
