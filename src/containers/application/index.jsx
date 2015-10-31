@@ -99,10 +99,9 @@ export default class Application extends React.Component {
         <TilePanel actions={actions} tiles={attempt} type={TILE_PANEL_TYPE.ATTEMPT} />
         <TilePanel actions={actions} tiles={jumble} type={TILE_PANEL_TYPE.JUMBLE} />
         
-        <form onSubmit={this.onSubmitHandler}>
-          <button type="submit" name="submit">Submit</button>
-          <button type="button" name="clear" onClick={this.onClearHandler}>Clear</button>
-        </form>
+        <button type="button" name="submit" onClick={this.onSubmitHandler}>Submit</button>
+        <button type="button" name="clear" onClick={this.onClearHandler}>Clear</button>
+
         <ul id="word-list"></ul>
       </div>
     );
