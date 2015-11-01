@@ -11,6 +11,7 @@ import TileActions from '../../actions/tile';
 import TimeActions from '../../actions/time';
 
 // Components
+import Button from '../../components/button';
 import TilePanel from '../../components/tile-panel';
 import WordList from '../../components/word-list';
 
@@ -119,8 +120,8 @@ export default class Game extends React.Component {
         <TilePanel actions={actions} tiles={attempt} type={TILE_PANEL_TYPE.ATTEMPT} />
         <TilePanel actions={actions} tiles={jumble} type={TILE_PANEL_TYPE.JUMBLE} />
         
-        <button type="button" name="submit" onClick={this.onSubmitHandler}>Submit</button>
-        <button type="button" name="clear" onClick={this.onClearHandler}>Clear</button>
+        <Button onClick={this.onSubmitHandler}>Submit</Button>
+        <Button onClick={this.onClearHandler}>Clear</Button>
 
         <WordList words={words} />
       </div>

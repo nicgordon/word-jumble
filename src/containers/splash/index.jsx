@@ -6,6 +6,9 @@ import { GAME_STATE } from '../../constants';
 // Actions
 import GameActions from '../../actions/game';
 
+// Components
+import Button from '../../components/button';
+
 export default class Splash extends React.Component {
   static propTypes = {
     // From redux state
@@ -24,7 +27,7 @@ export default class Splash extends React.Component {
 
   render() {
     return (
-      <button type="button" onClick={this.startButtonClickHandler}>Start game</button>
+      <Button onClick={this.startButtonClickHandler}>Start game</Button>
     );
   }
 } 
