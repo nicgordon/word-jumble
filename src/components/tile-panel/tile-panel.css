@@ -1,6 +1,7 @@
 .default {
   border: 1px solid #ccc;
   padding: 5px;
+  min-height: 26px;
 }
 
 .tilePlaceholder {
@@ -10,4 +11,6 @@
   line-height: 1.5rem;
   display: inline-block;
   margin-right: 3px;
+  border: 1px solid white;
+  vertical-align: bottom;
 }
