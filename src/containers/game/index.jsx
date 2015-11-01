@@ -11,7 +11,6 @@ import TileActions from '../../actions/tile';
 import TimeActions from '../../actions/time';
 
 // Components
-import Summary from '../../components/summary';
 import TilePanel from '../../components/tile-panel';
 import WordList from '../../components/word-list';
 
@@ -20,7 +19,6 @@ export default class Game extends React.Component {
     // From redux state
     actions: PropTypes.object.isRequired,
     attempt: PropTypes.array.isRequired,
-    gameState: PropTypes.string.isRequired,
     jumble: PropTypes.array.isRequired,
     score: PropTypes.number.isRequired,
     timeRemaining: PropTypes.number.isRequired,
@@ -111,11 +109,7 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const { actions, attempt, gameState, jumble, score, timeRemaining, words } = this.props;
-
-    if (gameState === GAME_STATE.COMPLETED) {
-      return <Summary score={score} />;
-    }
+    const { actions, attempt, jumble, score, timeRemaining, words } = this.props;
 
     return (
       <div>
@@ -137,7 +131,6 @@ export default class Game extends React.Component {
 function mapStateToProps(state) {
   return {
     attempt: state.tile.attempt,
-    gameState: state.game.state,
     jumble: state.tile.jumble,
     score: state.score.score,
     timeRemaining: state.time.timeRemaining,

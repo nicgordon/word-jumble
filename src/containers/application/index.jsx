@@ -8,6 +8,7 @@ import GameActions from '../../actions/game';
 // Components
 import Game from '../game';
 import Splash from '../splash';
+import Summary from '../summary';
 
 export default class Application extends React.Component {
   static propTypes = {
@@ -16,10 +17,13 @@ export default class Application extends React.Component {
   }
 
   render() {
-    if (this.props.gameState === GAME_STATE.PRE_GAME) {
-      return <Splash />;
-    } else {
-      return <Game />;
+    switch(this.props.gameState) {
+      case GAME_STATE.PRE_GAME:
+        return <Splash />;
+      case GAME_STATE.COMPLETED:
+        return <Summary />;
+      default:
+        return <Game />;  
     }
   }
 } 
