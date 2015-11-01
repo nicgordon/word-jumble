@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Actions
+import GameActions from '../../actions/game';
+
 class Summary extends React.Component {
   static propTypes = {
     score: PropTypes.number.isRequired,
