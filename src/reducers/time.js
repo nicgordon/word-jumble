@@ -6,7 +6,7 @@ import {
 import { TIMER_STATE } from '../constants';
 
 const initialState = {
-  timeRemaining: 120,
+  timeRemaining: 60,
   timerState: TIMER_STATE.OFF,
 };
 
