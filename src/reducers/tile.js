@@ -4,12 +4,13 @@ import { TILE_MOVEMENT } from '../constants';
 const initialState = {
   jumble: [
     { value: 'c' },
-    { value: 'h' },
-    { value: 'i' },
     { value: 'c' },
-    { value: 'k' },
     { value: 'e' },
+    { value: 'k' },
     { value: 'n' },
+    { value: 'h' },
+    { value: 's' },
+    { value: 'i' },
   ],
   attempt: [],
 };
