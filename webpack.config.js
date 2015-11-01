@@ -20,6 +20,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __DEVTOOLS__: false,
+    }),
     new ExtractTextPlugin('style.css', { allChunks: true }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

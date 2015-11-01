@@ -11,14 +11,18 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 const store = configureStore();
 
+const devtools = __DEVTOOLS__ ? (
+  <DebugPanel top right bottom>
+    <DevTools store={store} monitor={LogMonitor} />
+  </DebugPanel>
+) : null;
+
 ReactDOM.render((
   <div>
     <Provider store={store}>
       <Application />
     </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
-    </DebugPanel>
+    {devtools}
   </div>
   ), document.getElementById('root')
 );

@@ -5,12 +5,12 @@ import rootReducer from '../reducers'
 import { devTools, persistState } from 'redux-devtools';
 
 export default function configureStore(initialState) {
-  const finalCreateStore = compose(
+  const finalCreateStore = __DEVTOOLS__ ? compose(
     // Provides support for DevTools:
     devTools(),
     // Lets you write ?debug_session=<name> in address bar to persist debug sessions
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-  )(createStore);
+  )(createStore) : createStore;
 
   const store = finalCreateStore(rootReducer, initialState);
 
