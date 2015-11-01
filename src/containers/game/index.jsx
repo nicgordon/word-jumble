@@ -45,8 +45,12 @@ export default class Game extends React.Component {
       interval: 1000,
     });
 
-    // TODO: Convert props.timeRemaining seconds into MM:SS
-    this.timer.start('02:00');
+    // Convert timeRemaining to mm:ss
+    const minutes = Math.floor(this.props.timeRemaining / 60);
+    const seconds = Math.floor(this.props.timeRemaining % 60);
+    const pad = number => number < 10 ? ('0' + number) : number;
+    const formattedTime = `${pad(minutes)}:${pad(seconds)}`;
+    this.timer.start(formattedTime);
   }
 
   componentWillUnmount() {
