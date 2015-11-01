@@ -36,7 +36,7 @@ function returnTileToJumble(tile, jumble) {
   }
 }
 
-export default function tiles(state = initialState, action = {}) {
+export default function tile(state = initialState, action = {}) {
   const reducers = {
     [TOUCH_TILE]: () => {
       const newState = { ...state };

@@ -21,7 +21,7 @@ export default class Tile extends React.Component {
 
   onClickHandler() {
     if (this.props.value) {
-      this.props.actions.tiles.touchTile(this.props.index, this.props.movement);
+      this.props.actions.tile.touchTile(this.props.index, this.props.movement);
     }
   }
 
