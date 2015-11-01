@@ -14,6 +14,11 @@
   transition: box-shadow .2s ease;
   cursor: pointer;
 }
+
+.big {
+  display: block;
+  width: 100%;
+}
   
 .button:hover {
   box-shadow: 0 0 0 2px #000000;

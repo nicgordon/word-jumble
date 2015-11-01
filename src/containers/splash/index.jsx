@@ -27,7 +27,7 @@ export default class Splash extends React.Component {
 
   render() {
     return (
-      <Button onClick={this.startButtonClickHandler}>Start game</Button>
+      <Button onClick={this.startButtonClickHandler} theme="big">Start game</Button>
     );
   }
 } 
