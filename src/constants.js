@@ -12,3 +12,10 @@ export const TIMER_STATE = {
   OFF: 0,
   ON: 1,
 };
+
+export const GAME_STATE = {
+  PRE_GAME: 'PRE_GAME',
+  LOADING: 'LOADING',
+  UNDERWAY: 'UNDERWAY',
+  COMPLETED: 'COMPLETED',
+}
