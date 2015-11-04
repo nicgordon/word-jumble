@@ -16,7 +16,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel?stage=0' },
-      { test: /\.css?$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') }
+      { test: /\.css?$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') },
+      { test: /\.txt?$/, exclude: /node_modules/, loader: 'raw' }
     ],
   },
   plugins: [
