@@ -9,6 +9,8 @@ import GameActions from '../../actions/game';
 // Components
 import Button from '../../components/button';
 
+import dictionary from '../../models/dictionary';
+
 export default class Splash extends React.Component {
   static propTypes = {
     // From redux state
@@ -25,9 +27,17 @@ export default class Splash extends React.Component {
     this.props.actions.game.changeGameState(GAME_STATE.UNDERWAY);
   }
 
+  testButtonClickHandler() {
+    console.log('loading words');
+    dictionary.loadWords();
+  }
+
   render() {
     return (
-      <Button onClick={this.startButtonClickHandler} theme="big">Start game</Button>
+      <div>
+        <Button onClick={this.startButtonClickHandler} theme="big">Start game</Button>
+        <Button onClick={this.testButtonClickHandler} theme="big">Load Words</Button>
+      </div>
     );
   }
 } 
