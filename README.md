@@ -8,5 +8,15 @@ This is just for the purposes of being a sandbox to play around with React, Redu
 To run the app do the following
 ```
 npm install
+```
+
+### In development
+```
+npm run watch
+```
+
+### In production
+```
+npm run build
 npm start
 ```
