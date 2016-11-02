@@ -1,5 +1,5 @@
 {
-  "name": "word-jumble",
+  "name": "word-jumble-web-client",
   "version": "1.0.0",
   "description": "Try and make more words than your opponent within the time limit!",
   "scripts": {
