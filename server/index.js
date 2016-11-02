@@ -2,12 +2,16 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 
+// Load the configuration
+require('../config/app');
+
 const app = express();
 
 app.use('/assets', express.static('dist'));
 
+const generateHtml = require('./html.js');
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.send(generateHtml());
 });
 
 const server = app.listen(3333, function () {
